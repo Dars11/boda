@@ -343,6 +343,13 @@ h2 {
     .carrusel-contenedor {
         max-width: 90vw; /* El carrusel ocupa casi todo el ancho de la pantalla */
     }
+
+    .parallax {
+        background-attachment: scroll; /* Cambia de 'fixed' a 'scroll' */
+        background-position: center;   /* Centra la imagen */
+        background-size: cover;        /* Asegura que cubra todo el fondo */
+        min-height: 100vh;             /* Asegura altura completa */
+    }
 }
 
 /* Para móviles muy pequeños (hasta 480px) */
