@@ -44,7 +44,7 @@ h2 {
 
 /* Sección 1: Portada y Efecto Parallax */
 .parallax {
-    background-image: url('img/fondo.webp'); 
+    background-image: url('Img/fondo.webp'); 
     min-height: 100vh;
     background-attachment: fixed;
     background-position: center;
