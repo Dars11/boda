@@ -47,11 +47,17 @@ const x = setInterval(function () {
             const audio = document.getElementById('musica-boda');
             const btnMusica = document.getElementById('btn-musica');
             const btnSilencio = document.getElementById('btn-silencio');
+            const btnControl = document.getElementById('btn-control-musica');
 
             if (!pantalla || !audio) return;
 
             btnMusica.addEventListener('click', () => this.manejarEntrada(true, pantalla, audio));
             btnSilencio.addEventListener('click', () => this.manejarEntrada(false, pantalla, audio));
+
+            // Evento para el botón flotante
+            if (btnControl) {
+                btnControl.addEventListener('click', () => this.alternarMusica(audio, btnControl));
+            }
         },
 
         manejarEntrada(conMusica, pantalla, audio) {
@@ -70,7 +76,25 @@ const x = setInterval(function () {
             // Limpieza: Eliminar Splash del DOM para liberar recursos
             setTimeout(() => {
                 pantalla.remove();
+                // Mostrar el botón flotante después de que se va el splash
+                const btnControl = document.getElementById('btn-control-musica');
+                if (btnControl) {
+                    btnControl.classList.remove('oculto');
+                    if (conMusica) {
+                        btnControl.classList.add('reproduciendo');
+                    }
+                }
             }, 2000);
+        },
+
+        alternarMusica(audio, btnControl) {
+            if (audio.paused) {
+                audio.play();
+                btnControl.classList.add('reproduciendo');
+            } else {
+                audio.pause();
+                btnControl.classList.remove('reproduciendo');
+            }
         },
 
         reproducirMusicaConDesvanecimiento(audio) {

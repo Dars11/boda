@@ -545,6 +545,10 @@ h2 {
         font-size: 1.8em;
     }
 
+    .indicador-scroll {
+        bottom: 90px;
+    }
+
     h2 {
         font-size: 2em;
         /* Reducimos los títulos de las secciones */
@@ -807,4 +811,57 @@ h2 {
     .boton-premium {
         min-width: 100%;
     }
+}
+
+/* --- Botón Flotante de Música --- */
+.boton-flotante-musica {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    border: 2px solid #bda06c;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 10000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    padding: 0;
+    outline: none;
+}
+
+.boton-flotante-musica:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(189, 160, 108, 0.3);
+}
+
+.boton-flotante-musica.oculto {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.icono-musica {
+    font-size: 24px;
+    line-height: 1;
+    display: block;
+}
+
+/* Animación de rotación cuando suena la música */
+@keyframes rotar-suave {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.boton-flotante-musica.reproduciendo .icono-musica {
+    animation: rotar-suave 4s linear infinite;
 }
