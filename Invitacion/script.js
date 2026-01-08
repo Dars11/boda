@@ -5,7 +5,7 @@
 const fechaBoda = new Date("Mar 14, 2026 16:00:00").getTime();
 
 // Actualiza el contador cada segundo
-const x = setInterval(function() {
+const x = setInterval(function () {
 
     // Obtiene la fecha y hora actual
     const ahora = new Date().getTime();
@@ -33,12 +33,78 @@ const x = setInterval(function() {
 }, 1000);
 
 
+// --- MOTOR DE EXPERIENCIA DE BODA (Implementación Senior) ---
+(function () {
+    'use strict';
+
+    const experienciaBoda = {
+        iniciar() {
+            document.addEventListener('DOMContentLoaded', () => this.vincularEventos());
+        },
+
+        vincularEventos() {
+            const pantalla = document.getElementById('splash-boda');
+            const audio = document.getElementById('musica-boda');
+            const btnMusica = document.getElementById('btn-musica');
+            const btnSilencio = document.getElementById('btn-silencio');
+
+            if (!pantalla || !audio) return;
+
+            btnMusica.addEventListener('click', () => this.manejarEntrada(true, pantalla, audio));
+            btnSilencio.addEventListener('click', () => this.manejarEntrada(false, pantalla, audio));
+        },
+
+        manejarEntrada(conMusica, pantalla, audio) {
+            if (conMusica) {
+                this.reproducirMusicaConDesvanecimiento(audio);
+            }
+
+            // Inicio de Animación de Salida
+            pantalla.classList.add('esta-saliendo');
+
+            // Senior UX: Delay ajustado para coincidir con la transición (1.5s) y evitar reflow
+            setTimeout(() => {
+                document.body.classList.remove('esta-bloqueado');
+            }, 1500);
+
+            // Limpieza: Eliminar Splash del DOM para liberar recursos
+            setTimeout(() => {
+                pantalla.remove();
+            }, 2000);
+        },
+
+        reproducirMusicaConDesvanecimiento(audio) {
+            audio.volume = 0;
+            const promesaReproduccion = audio.play();
+
+            if (promesaReproduccion !== undefined) {
+                promesaReproduccion.then(() => {
+                    // Lógica de Fade In (entrada suave)
+                    let volumen = 0;
+                    const intervalo = setInterval(() => {
+                        if (volumen < 1) {
+                            volumen += 0.05;
+                            audio.volume = Math.min(volumen, 1);
+                        } else {
+                            clearInterval(intervalo);
+                        }
+                    }, 100);
+                }).catch(error => {
+                    console.error("Fallo la reproducción de audio:", error);
+                });
+            }
+        }
+    };
+
+    experienciaBoda.iniciar();
+})();
+
 // --- Sección 4: Lógica del Carrusel con Autoscroll ---
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const track = document.querySelector('.carrusel-track');
 
     if (track) {
-        const scrollInterval = setInterval(function() {
+        const scrollInterval = setInterval(function () {
             const slideWidth = track.querySelector('.carrusel-slide').offsetWidth;
             const gap = 20; // El mismo valor que tienes en el 'gap' de tu CSS
 

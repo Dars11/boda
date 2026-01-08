@@ -1,15 +1,51 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nuestra Boda - Novio & Novia</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Quintessential&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Quintessential&family=Playfair+Display:wght@400;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+
+<body class="esta-bloqueado">
+
+    <!-- Experiencia de Entrada (Splash Screen) -->
+    <div id="splash-boda" class="pantalla-bienvenida">
+        <div class="capa-bienvenida"></div>
+        <div class="contenido-bienvenida">
+            <div class="encabezado-bienvenida">
+                <span class="subtitulo-bienvenida">Bienvenidos a la unión de</span>
+                <h1 class="titulo-bienvenida">Daniel y Stephania</h1>
+            </div>
+
+            <div class="divisor-bienvenida">
+                <span class="diamante-bienvenida"></span>
+            </div>
+
+            <p class="subtitulo-bienvenida">"Queremos que lo vivas con nosotros"</p>
+
+            <div class="acciones-bienvenida">
+                <button id="btn-musica" class="boton-premium boton-dorado">
+                    <span class="icono-boton">♪</span>
+                    <span class="texto-boton">Ingresar con música</span>
+                </button>
+                <button id="btn-silencio" class="boton-premium boton-contorno">
+                    <span class="texto-boton">Solo ingresar</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recurso de Audio (Música de Fondo) -->
+    <audio id="musica-boda" loop preload="auto">
+        <source src="https://github.com/Dars11/boda/raw/main/thousand_years.m4a" type="audio/mp4">
+    </audio>
 
     <!-- Sección 1: Portada -->
     <header id="portada" class="parallax">
@@ -17,43 +53,82 @@
             <h1>Daniel y Stephania</h1>
             <p>¡Nos casamos!</p>
         </div>
+
+        <div class="indicador-scroll">
+            <span class="flecha-scroll"></span>
+        </div>
     </header>
 
     <main>
         <!-- Sección 2: Cuenta Regresiva -->
-        <section id="cuenta-regresiva" class="seccion">
-            <h2>Faltan para el gran día</h2>
-            <div id="reloj">
-                <div><span id="dias">00</span> Días</div>
-                <div><span id="horas">00</span> Horas</div>
-                <div><span id="minutos">00</span> Minutos</div>
-                <div><span id="segundos">00</span> Segundos</div>
+        <section id="cuenta-regresiva" class="seccion seccion-cuenta-regresiva">
+
+            <!-- Contenedor Relativo para centrar todo -->
+            <div class="marco-cuenta-regresiva">
+                <!-- Anillos Decorativos de Fondo -->
+                <div class="anillos-decorativos">
+                    <span class="anillo anillo-1"></span>
+                    <span class="anillo anillo-2"></span>
+                    <span class="anillo anillo-3"></span>
+                </div>
+
+                <!-- Tarjeta Circular Principal -->
+                <div class="tarjeta-circular">
+                    <h2 class="titulo-faltan">Faltan</h2>
+                    <div class="adorno-swash">
+                        <svg viewBox="0 0 100 20" width="80" height="15">
+                            <path d="M0,10 Q25,20 50,10 T100,10" fill="none" stroke="#bda06c" stroke-width="2" />
+                        </svg>
+                    </div>
+
+                    <div id="reloj" class="contenedor-reloj">
+                        <div class="unidad-tiempo">
+                            <span id="dias" class="numero-tiempo">00</span>
+                            <span class="etiqueta-tiempo">Días</span>
+                        </div>
+                        <div class="unidad-tiempo">
+                            <span id="horas" class="numero-tiempo">00</span>
+                            <span class="etiqueta-tiempo">Hs</span>
+                        </div>
+                        <div class="unidad-tiempo">
+                            <span id="minutos" class="numero-tiempo">00</span>
+                            <span class="etiqueta-tiempo">Min</span>
+                        </div>
+                        <div class="unidad-tiempo">
+                            <span id="segundos" class="numero-tiempo">00</span>
+                            <span class="etiqueta-tiempo">Seg</span>
+                        </div>
+                    </div>
+
+                    <div class="icono-corazon">❤</div>
+                </div>
             </div>
         </section>
 
         <!-- Sección 3: Información de la Ceremonia -->
         <section id="ceremonia" class="seccion">
-          <div class="seccion-contenido">
-            <h2>Ceremonia y Recepción</h2>
-              <div class="info-evento">
-                  <div class="info-item">
-                      <h3>Fecha y Hora</h3>
-                      <p>Sábado, 14 de Marzo de 2026</p>
-                      <p>4:00 PM</p>
-                  </div>
-                  <div class="info-item">
-                      <h3>Lugar</h3>
-                      <p>Icc el porvenir</p>
-                      <p>El porvenir - San antero</p>
-                  </div>
-                  <div class="info-item">
-                      <h3>¿Cómo llegar?</h3>
-                      <a href="https://www.google.com/maps?rlz=1C5CHFA_enCO1098CO1098&sca_esv=7670df6d756a93b6&sxsrf=AE3TifMCq6Xyv14BigfZKzMewpilWehwRw:1767656384893&um=1&ie=UTF-8&fb=1&gl=co&sa=X&geocode=Kfux61kgCFmOMa5HD8BxJdxt&daddr=San+Antero,+C%C3%B3rdoba" target="_blank" class="boton">
-                      Ver en Google Maps
-                    </a>
-                  </div>
-              </div>
-          </div>  
+            <div class="seccion-contenido">
+                <h2>Ceremonia y Recepción</h2>
+                <div class="info-evento">
+                    <div class="info-item">
+                        <h3>Fecha y Hora</h3>
+                        <p>Sábado, 14 de Marzo de 2026</p>
+                        <p>4:00 PM</p>
+                    </div>
+                    <div class="info-item">
+                        <h3>Lugar</h3>
+                        <p>Icc el porvenir</p>
+                        <p>El porvenir - San antero</p>
+                    </div>
+                    <div class="info-item">
+                        <h3>¿Cómo llegar?</h3>
+                        <a href="https://www.google.com/maps?rlz=1C5CHFA_enCO1098CO1098&sca_esv=7670df6d756a93b6&sxsrf=AE3TifMCq6Xyv14BigfZKzMewpilWehwRw:1767656384893&um=1&ie=UTF-8&fb=1&gl=co&sa=X&geocode=Kfux61kgCFmOMa5HD8BxJdxt&daddr=San+Antero,+C%C3%B3rdoba"
+                            target="_blank" class="boton">
+                            Ver en Google Maps
+                        </a>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- Sección 4: Galería de Fotos -->
@@ -61,55 +136,58 @@
             <h2>Nuestros Momentos</h2>
             <div class="carrusel-contenedor">
                 <div class="carrusel-track">
-                    <div class="carrusel-slide"><img src="Img/c1.webp" alt="Foto de los novios 1"></div>
-                    <div class="carrusel-slide"><img src="Img/c2.webp" alt="Foto de los novios 2"></div>
-                    <div class="carrusel-slide"><img src="Img/c3.webp" alt="Foto de los novios 3"></div>
-                    <div class="carrusel-slide"><img src="Img/c4.webp" alt="Foto de los novios 4"></div>
-                    <div class="carrusel-slide"><img src="Img/c5.webp" alt="Foto de los novios 5"></div>
+                    <div class="carrusel-slide"><img src="img/c1.webp" alt="Foto de los novios 1"></div>
+                    <div class="carrusel-slide"><img src="img/c2.webp" alt="Foto de los novios 2"></div>
+                    <div class="carrusel-slide"><img src="img/c3.webp" alt="Foto de los novios 3"></div>
+                    <div class="carrusel-slide"><img src="img/c4.webp" alt="Foto de los novios 4"></div>
+                    <div class="carrusel-slide"><img src="img/c5.webp" alt="Foto de los novios 5"></div>
                 </div>
             </div>
         </section>
 
         <!-- Sección 5: Pases de Invitados  -->
         <section id="pases" class="seccion">
-          <div class="seccion-contenido">
-            <div class="numero-invitados">2</div>
-            <h2>Invitados</h2>
-            <div class="lista-invitados">
-                <span class="nombre-invitado">Daniel Contreras</span>
-                <span class="nombre-invitado">Stephania Pitalua</span>
+            <div class="seccion-contenido">
+                <div class="numero-invitados">2</div>
+                <h2>Invitados</h2>
+                <div class="lista-invitados">
+                    <span class="nombre-invitado">Daniel Contreras</span>
+                    <span class="nombre-invitado">Stephania Pitalua</span>
+                </div>
+                <p class="frase-final">Nos encanta compartir este momento contigo. ¡Te esperamos!</p>
             </div>
-            <p class="frase-final">Nos encanta compartir este momento contigo. ¡Te esperamos!</p>
-          </div>
         </section>
 
         <!-- Sección 6: Código de Vestimenta y Notas -->
         <section id="info-adicional" class="seccion seccion-fondo-blanco">
-          <div class="seccion-contenido">
-            <h2>Información Adicional</h2>
-            <div class="info-columnas">
-                <div class="columna">
-                    <h3>Código de Vestimenta</h3>
-                    <p> 
-                        <b>Se reserva el color blanco para la novia. </b>
-                    </p>
-                </div>
-                <div class="columna">
-                    <h3>Notas Importantes</h3>
-                    <p>Es importante que confirmes tu asistencia con al menos 15 días de anticipación.</p>
+            <div class="seccion-contenido">
+                <h2>Información Adicional</h2>
+                <div class="info-columnas">
+                    <div class="columna">
+                        <h3>Código de Vestimenta</h3>
+                        <p>
+                            <b>Se reserva el color blanco para la novia. </b>
+                        </p>
+                    </div>
+                    <div class="columna">
+                        <h3>Notas Importantes</h3>
+                        <p>Es importante que confirmes tu asistencia con al menos 15 días de anticipación.</p>
+                    </div>
                 </div>
             </div>
-          </div>
         </section>
 
         <!-- Sección 7: Regalos (Lluvia de Sobres) -->
         <section id="regalos" class="seccion">
-          <div class="seccion-contenido">
-            <h2>Regalos</h2>
-            <!-- Icono de Sobre SVG -->
-            <svg class="icono-sobre" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 4H2v16h20V4zm-2 14H4V8l8 5 8-5v10zM12 11L4 6h16l-8 5z"/></svg>
-            <p>El mejor regalo es su presencia, pero si desean obsequiarnos algo, pueden hacerlo en nuestro buzón para la <b>"lluvia de sobres".</b> </p>
-          </div>
+            <div class="seccion-contenido">
+                <h2>Regalos</h2>
+                <!-- Icono de Sobre SVG -->
+                <svg class="icono-sobre" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M22 4H2v16h20V4zm-2 14H4V8l8 5 8-5v10zM12 11L4 6h16l-8 5z" />
+                </svg>
+                <p>El mejor regalo es su presencia, pero si desean obsequiarnos algo, pueden hacerlo en nuestro buzón
+                    para la <b>"lluvia de sobres".</b> </p>
+            </div>
         </section>
     </main>
 
@@ -122,4 +200,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>

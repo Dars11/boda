@@ -1,16 +1,35 @@
 /* Estilos Generales */
+html {
+    scrollbar-gutter: stable;
+}
+
 body {
     font-family: 'Lato', sans-serif;
     margin: 0;
-    color: #5d5d5d; /* Un gris más suave */
+    color: #5d5d5d;
+    /* Un gris más suave */
     line-height: 1.8;
-    background-color: #f9f6f2; /* Tono Nácar/Perla */
+    background-color: #f9f6f2;
+    /* Tono Nácar/Perla */
+    transition: background-color 0.5s ease;
 }
 
-h1, h2, h3, .nombres-novios {
+/* --- Bloqueo de scroll Profesional --- */
+body.esta-bloqueado {
+    overflow: hidden !important;
+    height: 100vh;
+    touch-action: none;
+    /* Bloquea scroll en móviles */
+}
+
+h1,
+h2,
+h3,
+.nombres-novios {
     font-family: 'Parisienne', cursive;
     font-weight: 700;
-    color: #bda06c; /* Dorado elegante */
+    color: #bda06c;
+    /* Dorado elegante */
 }
 
 h3 {
@@ -25,26 +44,31 @@ h2 {
 }
 
 .seccion {
-    padding: 80px 20px; /* Mantenemos el espaciado vertical */
- 
+    padding: 80px 20px;
+    /* Mantenemos el espaciado vertical */
+
 }
 
 .seccion-contenido {
-    max-width: 900px; /* El ancho máximo va aquí ahora */
-    margin: 0 auto; /* El centrado va aquí */
+    max-width: 900px;
+    /* El ancho máximo va aquí ahora */
+    margin: 0 auto;
+    /* El centrado va aquí */
     text-align: center;
 }
 
 /* --- Estilos para Separación de Secciones --- */
 .seccion-fondo-blanco {
     background-color: #ffffff;
-    border-top: 1px solid #f0eeeb; /* Borde superior muy sutil */
-    border-bottom: 1px solid #f0eeeb; /* Borde inferior muy sutil */
+    border-top: 1px solid #f0eeeb;
+    /* Borde superior muy sutil */
+    border-bottom: 1px solid #f0eeeb;
+    /* Borde inferior muy sutil */
 }
 
 /* Sección 1: Portada y Efecto Parallax */
 .parallax {
-    background-image: url('Img/fondo.webp'); 
+    background-image: url('img/fondo.webp');
     min-height: 100vh;
     background-attachment: fixed;
     background-position: center;
@@ -64,21 +88,27 @@ h2 {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(40, 50, 70, 0.4); /* Tono de transparencia */
+    background-color: rgba(40, 50, 70, 0.4);
+    /* Tono de transparencia */
 }
 
 .contenido-portada {
     position: relative;
     text-align: center;
-    color: #f0f0f0; /* Blanco roto para mejor contraste */
+    color: #f0f0f0;
+    /* Blanco roto para mejor contraste */
 }
 
 .contenido-portada h1 {
-    font-family: 'Quintessential', cursive; /* Aplicamos la nueva fuente */
-    font-size: 7.1em; /* Aumentamos el tamaño para que la fuente script luzca */
-    font-weight: normal; /* Parisienne es una fuente ligera, no necesita negrita */
+    font-family: 'Quintessential', cursive;
+    /* Aplicamos la nueva fuente */
+    font-size: 7.1em;
+    /* Aumentamos el tamaño para que la fuente script luzca */
+    font-weight: normal;
+    /* Parisienne es una fuente ligera, no necesita negrita */
     margin: 0;
-    color: #f9f6f2; /* Color Nácar/Perla */
+    color: #f9f6f2;
+    /* Color Nácar/Perla */
 }
 
 .contenido-portada p {
@@ -86,26 +116,194 @@ h2 {
     font-family: 'Quintessential', cursive;
 }
 
-/* Sección 2: Cuenta Regresiva */
-#reloj {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    font-size: 1.2em;
+/* --- Indicador de Scroll (Flecha Animada) --- */
+.indicador-scroll {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.8;
+    animation: animacion-rebote 2s infinite;
 }
 
-#reloj div {
-    background-color: #ffffff; /* Fondo blanco puro para resaltar */
-    padding: 20px;
-    border-radius: 10px;
-    min-width: 100px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Sombra sutil */
-}
-#reloj span {
+.flecha-scroll {
     display: block;
-    font-size: 3em;
+    width: 25px;
+    height: 25px;
+    border-bottom: 2px solid #fff;
+    border-right: 2px solid #fff;
+    transform: rotate(45deg);
+}
+
+@keyframes animacion-rebote {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    40% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+
+    60% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
+
+/* Sección 2: Cuenta Regresiva (Diseño Circular "Anillos") */
+.seccion-cuenta-regresiva {
+    background-color: #f9f6f2;
+    /* Fondo suave para que resalte el blanco */
+    padding: 120px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    /* Para que los anillos no desborden */
+}
+
+.marco-cuenta-regresiva {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 450px;
+    height: 450px;
+}
+
+/* --- Anillos Decorativos (Efecto "Sketchy") --- */
+.anillos-decorativos {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.anillo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 1px solid #bda06c;
+    opacity: 0.6;
+}
+
+.anillo-1 {
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%) rotate(15deg) scale(1.1);
+    border-color: rgba(189, 160, 108, 0.4);
+}
+
+.anillo-2 {
+    width: 95%;
+    height: 105%;
+    transform: translate(-50%, -50%) rotate(-10deg) scale(1.15);
+    border-color: rgba(189, 160, 108, 0.3);
+}
+
+.anillo-3 {
+    width: 102%;
+    height: 98%;
+    transform: translate(-50%, -50%) rotate(45deg) scale(1.08);
+    border-color: rgba(189, 160, 108, 0.5);
+}
+
+/* --- Tarjeta Circular Central --- */
+.tarjeta-circular {
+    background-color: #ffffff;
+    border-radius: 50%;
+    width: 380px;
+    height: 380px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 15px 40px rgba(189, 160, 108, 0.15);
+    /* Sombra suave dorada */
+    padding: 40px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 2;
+}
+
+.titulo-faltan {
+    font-family: 'Parisienne', cursive;
+    font-size: 2.8em;
+    color: #bda06c;
+    margin: 0;
+    font-weight: 700;
+}
+
+.adorno-swash {
+    margin-bottom: 20px;
+    opacity: 0.8;
+}
+
+.icono-corazon {
+    margin-top: 25px;
+    font-size: 1.5em;
+    color: #bda06c;
+}
+
+/* --- Reloj Interno --- */
+.contenedor-reloj {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    /* Menos espacio para caber en el círculo */
+}
+
+.unidad-tiempo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    min-width: 60px;
+    /* Reducido */
+}
+
+/* Separador vertical fino */
+.unidad-tiempo:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: -8px;
+    /* Ajustado */
+    top: 50%;
+    transform: translateY(-50%);
+    height: 30px;
+    width: 1px;
+    background-color: #e0e0e0;
+    /* Gris muy suave */
+}
+
+.numero-tiempo {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2em;
+    font-weight: 700;
+    color: #5d5d5d;
+    /* Gris oscuro para contraste */
+    line-height: 1;
+    margin-bottom: 2px;
+    font-variant-numeric: tabular-nums;
+}
+
+.etiqueta-tiempo {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.7em;
+    text-transform: lowercase;
+    color: #bda06c;
+    /* Dorado */
     font-weight: bold;
-    color: #bda06c; /* Dorado elegante */
 }
 
 /* Sección 3: Información de la Ceremonia */
@@ -124,7 +322,8 @@ h2 {
 
 .boton {
     display: inline-block;
-    background-color: #bda06c; /* Dorado */
+    background-color: #bda06c;
+    /* Dorado */
     color: #fff;
     padding: 12px 25px;
     text-decoration: none;
@@ -133,13 +332,15 @@ h2 {
 }
 
 .boton:hover {
-    background-color: #a88c5a; /* Dorado un poco más oscuro */
+    background-color: #a88c5a;
+    /* Dorado un poco más oscuro */
 }
 
 
 /* --- Sección 5: Pases de Invitados --- */
 .numero-invitados {
-    background-color: #bda06c; /* Dorado */
+    background-color: #bda06c;
+    /* Dorado */
     color: #fff;
     width: 50px;
     height: 50px;
@@ -156,7 +357,8 @@ h2 {
 #pases h2 {
     font-family: 'Quintessential', cursive;
     font-weight: 700;
-    letter-spacing: 2px; /* Espaciado entre letras */
+    letter-spacing: 2px;
+    /* Espaciado entre letras */
     font-size: 2em;
     margin-bottom: 30px;
 }
@@ -165,12 +367,14 @@ h2 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px; /* Espacio entre nombres */
+    gap: 15px;
+    /* Espacio entre nombres */
     margin-bottom: 30px;
 }
 
 .nombre-invitado {
-    background-color: rgba(239, 235, 233, 0.8); /* Beige claro */
+    background-color: rgba(239, 235, 233, 0.8);
+    /* Beige claro */
     padding: 10px 25px;
     border-radius: 8px;
     font-size: 1.1em;
@@ -197,7 +401,8 @@ h2 {
 
 /* Sección 8: Despedida */
 #despedida {
-    background-color: #ffffff; /* Fondo blanco */
+    background-color: #ffffff;
+    /* Fondo blanco */
     padding: 60px 20px;
     text-align: center;
 }
@@ -215,19 +420,27 @@ h2 {
 .carrusel-contenedor {
     position: relative;
     width: 100%;
-    padding: 0 40px; /* Espacio para que los botones no se peguen a los bordes */
+    padding: 0 40px;
+    /* Espacio para que los botones no se peguen a los bordes */
     box-sizing: border-box;
 }
 
 .carrusel-track {
     display: flex;
-    overflow-x: auto; /* Habilita el scroll horizontal */
-    scroll-snap-type: x mandatory; /* Hace que el scroll se "pegue" a un slide */
-    gap: 20px; /* Espacio entre las fotos */
-    padding-bottom: 20px; /* Espacio para la barra de scroll, si aparece */
-    -ms-overflow-style: none;  /* IE y Edge */
-    scrollbar-width: none;  /* Firefox */
-    scroll-behavior: smooth; /* Animación suave del scroll */
+    overflow-x: auto;
+    /* Habilita el scroll horizontal */
+    scroll-snap-type: x mandatory;
+    /* Hace que el scroll se "pegue" a un slide */
+    gap: 20px;
+    /* Espacio entre las fotos */
+    padding-bottom: 20px;
+    /* Espacio para la barra de scroll, si aparece */
+    -ms-overflow-style: none;
+    /* IE y Edge */
+    scrollbar-width: none;
+    /* Firefox */
+    scroll-behavior: smooth;
+    /* Animación suave del scroll */
 }
 
 /* Oculta la barra de scroll en Chrome, Safari y Opera */
@@ -236,24 +449,37 @@ h2 {
 }
 
 .carrusel-slide {
-    flex: 0 0 30%; /* Cada slide ocupa el 30% del contenedor. Muestra ~3 slides */
-    min-width: 250px; /* Ancho mínimo para cada foto */
-    scroll-snap-align: start; /* Alinea el slide al inicio al hacer scroll */
+    flex: 0 0 30%;
+    /* Cada slide ocupa el 30% del contenedor. Muestra ~3 slides */
+    min-width: 250px;
+    /* Ancho mínimo para cada foto */
+    scroll-snap-align: start;
+    /* Alinea el slide al inicio al hacer scroll */
 }
 
 .carrusel-slide img {
     width: 100%;
-    height: 350px; /* Altura fija para todas las imágenes */
-    object-fit: cover; /* Evita que las imágenes se deformen */
+    height: 350px;
+    /* Altura fija para todas las imágenes */
+    object-fit: cover;
+    /* Evita que las imágenes se deformen */
     border-radius: 8px;
 }
 
 
 /* --- Efectos Flotantes y Animaciones --- */
 @keyframes flotar {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0px); }
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
 }
 
 /* Animación de entrada para las secciones */
@@ -262,6 +488,7 @@ h2 {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -271,7 +498,8 @@ h2 {
 .seccion {
     /* ... tus estilos existentes para .seccion ... */
     animation: aparecer 1s ease-out forwards;
-    opacity: 0; /* Inicia invisible para la animación */
+    opacity: 0;
+    /* Inicia invisible para la animación */
 }
 
 /* Aplicamos el efecto flotante a elementos específicos */
@@ -280,9 +508,17 @@ h2 {
 }
 
 /* Retrasamos la animación para cada caja del reloj */
-#reloj div:nth-child(2) { animation-delay: 0.2s; }
-#reloj div:nth-child(3) { animation-delay: 0.4s; }
-#reloj div:nth-child(4) { animation-delay: 0.6s; }
+#reloj div:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+#reloj div:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+#reloj div:nth-child(4) {
+    animation-delay: 0.6s;
+}
 
 
 /* --- Sección 7: Icono de Regalos --- */
@@ -290,7 +526,8 @@ h2 {
     width: 60px;
     height: 60px;
     margin-bottom: 20px;
-    fill: #bda06c; /* Dorado */
+    fill: #bda06c;
+    /* Dorado */
 }
 
 /* --- Estilos Responsivos --- */
@@ -300,7 +537,8 @@ h2 {
 
     /* 1. Ajuste de fuentes principales */
     .contenido-portada h1 {
-        font-size: 4.5em; /* Reducimos el tamaño del título principal */
+        font-size: 4.5em;
+        /* Reducimos el tamaño del título principal */
     }
 
     .contenido-portada p {
@@ -308,61 +546,265 @@ h2 {
     }
 
     h2 {
-        font-size: 2em; /* Reducimos los títulos de las secciones */
+        font-size: 2em;
+        /* Reducimos los títulos de las secciones */
     }
 
     .seccion {
-        padding: 50px 15px; /* Menos espacio en los lados */
+        padding: 50px 15px;
+        /* Menos espacio en los lados */
     }
 
-    /* 2. Arreglo de la cuenta regresiva */
-    #reloj {
-        flex-wrap: wrap; /* Permitimos que los elementos se envuelvan */
-        gap: 15px;
+    /* 2. Arreglo de la cuenta regresiva circular móvil */
+    .marco-cuenta-regresiva {
+        width: 300px;
+        height: 300px;
     }
 
-    #reloj div {
-        padding: 15px;
-        min-width: 120px; /* Hacemos las cajas un poco más grandes para que se vean bien en 2x2 */
-        flex-grow: 1; /* Permitimos que crezcan para ocupar el espacio */
+    .tarjeta-circular {
+        width: 280px;
+        height: 280px;
+        padding: 20px;
     }
 
-    #reloj span {
-        font-size: 2.2em;
+    .titulo-faltan {
+        font-size: 2em;
+    }
+
+    .contenedor-reloj {
+        gap: 10px;
+    }
+
+    .unidad-tiempo {
+        min-width: 45px;
+    }
+
+    .numero-tiempo {
+        font-size: 1.5em;
+    }
+
+    .unidad-tiempo:not(:last-child)::after {
+        right: -5px;
     }
 
     /* 3. Columnas de información se apilan verticalmente */
     .info-evento,
     .info-columnas {
-        flex-direction: column; /* Apilamos los elementos verticalmente */
+        flex-direction: column;
+        /* Apilamos los elementos verticalmente */
         gap: 30px;
         text-align: center;
     }
 
     /* 4. Carrusel más pequeño */
     .carrusel-contenedor {
-        max-width: 90vw; /* El carrusel ocupa casi todo el ancho de la pantalla */
+        max-width: 90vw;
+        /* El carrusel ocupa casi todo el ancho de la pantalla */
     }
 
     .parallax {
-        background-attachment: scroll; /* Cambia de 'fixed' a 'scroll' */
-        background-position: center;   /* Centra la imagen */
-        background-size: cover;        /* Asegura que cubra todo el fondo */
-        min-height: 100vh;             /* Asegura altura completa */
+        background-attachment: scroll;
+        /* Cambia de 'fixed' a 'scroll' */
+        background-position: center;
+        /* Centra la imagen */
+        background-size: cover;
+        /* Asegura que cubra todo el fondo */
+        min-height: 100vh;
+        /* Asegura altura completa */
     }
 }
 
 /* Para móviles muy pequeños (hasta 480px) */
 @media (max-width: 480px) {
     .contenido-portada h1 {
-        font-size: 3.5em; /* Aún más pequeño para los móviles más estrechos */
+        font-size: 3.5em;
+        /* Aún más pequeño para los móviles más estrechos */
     }
 
     .contenido-portada p {
         font-size: 1.5em;
     }
 
-    #reloj div {
-        min-width: 100px; /* Ajustamos de nuevo para que quepan 2 cajas */
+    .marco-cuenta-regresiva {
+        width: 260px;
+        height: 260px;
+    }
+
+    .tarjeta-circular {
+        width: 240px;
+        height: 240px;
+    }
+}
+
+/* --- SISTEMA DE BIENVENIDA (Enfoque Senior) --- */
+.pantalla-bienvenida {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f6f2;
+    /* Sólido inicial para evitar FOUC */
+    transition: opacity 1.5s cubic-bezier(0.65, 0, 0.35, 1),
+        visibility 1.5s,
+        transform 1.5s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.capa-bienvenida {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2) 0%, rgba(189, 160, 108, 0.05) 100%);
+}
+
+.contenido-bienvenida {
+    position: relative;
+    text-align: center;
+    padding: 60px 40px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(189, 160, 108, 0.2);
+    border-radius: 20px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+    max-width: 550px;
+    width: 90%;
+    animation: bienvenidoEntrada 1.2s ease-out;
+}
+
+.subtitulo-bienvenida {
+    display: block;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #888;
+    margin-bottom: 15px;
+    font-family: 'Lato', sans-serif;
+}
+
+.titulo-bienvenida {
+    font-family: 'Parisienne', cursive;
+    font-size: 4em;
+    color: #bda06c;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.divisor-bienvenida {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.divisor-bienvenida::before,
+.divisor-bienvenida::after {
+    content: '';
+    height: 1px;
+    width: 60px;
+    background: linear-gradient(to right, transparent, #bda06c, transparent);
+}
+
+.diamante-bienvenida {
+    width: 10px;
+    height: 10px;
+    background: #bda06c;
+    transform: rotate(45deg);
+    margin: 0 15px;
+    opacity: 0.6;
+}
+
+.mensaje-bienvenida {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.2em;
+    color: #5d5d5d;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.acciones-bienvenida {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.boton-premium {
+    min-width: 280px;
+    padding: 18px 30px;
+    font-size: 0.9em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    border: none;
+    font-family: 'Lato', sans-serif;
+}
+
+.boton-dorado {
+    background: linear-gradient(135deg, #bda06c 0%, #d4bb8e 50%, #bda06c 100%);
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 10px 30px rgba(189, 160, 108, 0.3);
+}
+
+.boton-dorado:hover {
+    background-position: right center;
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(189, 160, 108, 0.4);
+}
+
+.boton-contorno {
+    background: transparent;
+    border: 1px solid #bda06c;
+    color: #bda06c;
+}
+
+.boton-contorno:hover {
+    background: rgba(189, 160, 108, 0.05);
+    transform: translateY(-2px);
+}
+
+/* --- ESTADO: SALIDA --- */
+.pantalla-bienvenida.esta-saliendo {
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1);
+}
+
+/* --- ANIMACIONES --- */
+@keyframes bienvenidoEntrada {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* --- OPTIMIZACIÓN MÓVIL --- */
+@media (max-width: 480px) {
+    .titulo-bienvenida {
+        font-size: 2.8em;
+    }
+
+    .contenido-bienvenida {
+        padding: 40px 25px;
+    }
+
+    .boton-premium {
+        min-width: 100%;
     }
 }
