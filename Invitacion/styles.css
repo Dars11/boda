@@ -248,10 +248,22 @@ h2 {
     opacity: 0.8;
 }
 
-.icono-corazon {
+.icono-corazon,
+.fi-tr-circle-heart {
     margin-top: 25px;
-    font-size: 1.5em;
+    font-size: 2.8em;
     color: #A67841;
+    display: block;
+    transition: all 0.3s ease;
+    opacity: 0.9;
+}
+
+.icono-corazon:hover,
+.fi-tr-circle-heart:hover {
+    transform: scale(1.1);
+    opacity: 1;
+    color: #8B6635;
+    /* Dorado más oscuro al hacer hover */
 }
 
 /* --- Reloj Interno --- */
@@ -768,7 +780,8 @@ h2 {
     }
 
     .indicador-scroll {
-        bottom: 90px;
+        bottom: 18vh;
+        /* Subimos más para evitar la interfaz del navegador móvil */
     }
 
     h2 {
