@@ -8,8 +8,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Quintessential&family=Playfair+Display:wght@400;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Updock&family=Parisienne&family=Buda&family=Quintessential&family=Playfair+Display:wght@400;700&display=swap"
         rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Buda:wght@300&family=Tangerine:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css">
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-thin-rounded/css/uicons-thin-rounded.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -21,7 +25,7 @@
         <div class="contenido-bienvenida">
             <div class="encabezado-bienvenida">
                 <span class="subtitulo-bienvenida">Bienvenidos a la unión de</span>
-                <h1 class="titulo-bienvenida">Daniel y Stephania</h1>
+                <h1 class="titulo-bienvenida">Daniel & Stephania</h1>
             </div>
 
             <div class="divisor-bienvenida">
@@ -77,7 +81,7 @@
                     <h2 class="titulo-faltan">Faltan</h2>
                     <div class="adorno-swash">
                         <svg viewBox="0 0 100 20" width="80" height="15">
-                            <path d="M0,10 Q25,20 50,10 T100,10" fill="none" stroke="#bda06c" stroke-width="2" />
+                            <path d="M0,10 Q25,20 50,10 T100,10" fill="none" stroke="#9e824c" stroke-width="2" />
                         </svg>
                     </div>
 
@@ -105,33 +109,86 @@
             </div>
         </section>
 
-        <!-- Sección 3: Información de la Ceremonia -->
-        <section id="ceremonia" class="seccion">
+        <!-- Sección 3: Versículo Bíblico -->
+        <section id="versiculo" class="seccion seccion-fondo-blanco">
             <div class="seccion-contenido">
-                <h2>Ceremonia y Recepción</h2>
-                <div class="info-evento">
-                    <div class="info-item">
-                        <h3>Fecha y Hora</h3>
-                        <p>Sábado, 14 de Marzo de 2026</p>
-                        <p class="boton">5:00 PM</p>
+                <div class="contenedor-versiculo">
+                    <!-- Icono decorativo superior -->
+                    <div class="icono-biblia">
+                        <i class="fi fi-tr-book-medical"></i>
                     </div>
-                    <div class="info-item">
-                        <h3>Lugar</h3>
-                        <p>Icc el porvenir</p>
-                        <p>El porvenir - San antero</p>
-                    </div>
-                    <div class="info-item">
-                        <h3>¿Cómo llegar?</h3>
-                        <a href="https://www.google.com/maps?rlz=1C5CHFA_enCO1098CO1098&sca_esv=7670df6d756a93b6&sxsrf=AE3TifMCq6Xyv14BigfZKzMewpilWehwRw:1767656384893&um=1&ie=UTF-8&fb=1&gl=co&sa=X&geocode=Kfux61kgCFmOMa5HD8BxJdxt&daddr=San+Antero,+C%C3%B3rdoba"
-                            target="_blank" class="boton">
-                            Ver en Google Maps
-                        </a>
+
+                    <!-- Texto del versículo -->
+                    <blockquote class="texto-versiculo">
+                        <p class="versiculo-contenido letra">
+                            "Y los dos serán una sola carne. Así que ya no son dos, sino uno solo.
+                            Por tanto, lo que Dios ha unido, que no lo separe el hombre."
+                        </p>
+                        <cite class="versiculo-cita">— Marcos 10:8-9</cite>
+                    </blockquote>
+
+                    <!-- Adorno decorativo inferior -->
+                    <div class="adorno-versiculo">
+                        <svg viewBox="0 0 200 30" width="150" height="22">
+                            <path d="M10,15 Q50,5 100,15 T190,15" fill="none" stroke="#A67841" stroke-width="1.5" />
+                            <circle cx="100" cy="15" r="3" fill="#A67841" />
+                        </svg>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Sección 4: Galería de Fotos -->
+        <!-- Sección 4: Información de la Ceremonia -->
+        <section id="ceremonia" class="seccion">
+            <div class="seccion-contenido">
+                <h2>Ceremonia y Recepción</h2>
+                <div class="tarjeta-evento">
+                    <!-- Bloque Izquierdo: Fecha Destacada -->
+                    <div class="fecha-bloque">
+                        <span class="fecha-mes">MARZO</span>
+                        <span class="fecha-numero">14</span>
+                        <span class="fecha-dia">Sábado</span>
+                        <span class="fecha-anio">2026</span>
+                    </div>
+
+                    <div class="divisor-vertical"></div>
+
+                    <div class=" hora-bloque">
+                        <div class="icono-detalle-hora">
+                            <i class="fi fi-tr-clock-two"></i>
+                        </div>
+                        <span class="etiqueta-dato">HORA</span>
+                        <span class="dato-hora">5:00</span>
+                        <span class="pm">Pm</span>
+                    </div>
+
+                    <!-- Divisor Decorativo -->
+                    <div class="divisor-vertical"></div>
+
+                    <!-- Bloque Derecho: Lugar (Modificado) -->
+                    <div class="detalles-evento lugar-bloque">
+                        <div class="detalle-item centered-content">
+                            <!-- Icono eliminado o cambiado si se desea, dejamos solo texto centrado para simetría o icono arriba -->
+                            <span class="icono-detalle"><i class="fi fi-tr-earth-americas"></i></span>
+                            <div class="texto-detalle">
+                                <h3>Lugar</h3>
+                                <p>ICC El Porvenir</p>
+                                <p class="direccion">El Porvenir - San Antero</p>
+                            </div>
+                        </div>
+
+                        <div class="accion-mapa">
+                            <a href="https://www.google.com/maps?rlz=1C5CHFA_enCO1098CO1098&sca_esv=7670df6d756a93b6&sxsrf=AE3TifMCq6Xyv14BigfZKzMewpilWehwRw:1767656384893&um=1&ie=UTF-8&fb=1&gl=co&sa=X&geocode=Kfux61kgCFmOMa5HD8BxJdxt&daddr=San+Antero,+C%C3%B3rdoba"
+                                target="_blank" class="boton mapa-btn">
+                                Ver ubicación
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección 5: Galería de Fotos -->
         <section id="galeria" class="seccion seccion-fondo-blanco">
             <h2>Nuestros Momentos</h2>
             <div class="carrusel-contenedor">
@@ -145,7 +202,7 @@
             </div>
         </section>
 
-        <!-- Sección 5: Pases de Invitados  -->
+        <!-- Sección 6: Pases de Invitados  -->
         <section id="pases" class="seccion">
             <div class="seccion-contenido">
                 <div class="numero-invitados">2</div>
@@ -154,11 +211,11 @@
                     <span class="nombre-invitado">Daniel Contreras</span>
                     <span class="nombre-invitado">Stephania Pitalua</span>
                 </div>
-                <p class="frase-final">Nos encanta compartir este momento contigo. ¡Te esperamos!</p>
+                <p class="letra">Nos encanta compartir este momento contigo. ¡Te esperamos!</p>
             </div>
         </section>
 
-        <!-- Sección 6: Código de Vestimenta y Notas -->
+        <!-- Sección 7: Código de Vestimenta y Notas -->
         <section id="info-adicional" class="seccion seccion-fondo-blanco">
             <div class="seccion-contenido">
                 <h2>Información Adicional</h2>
@@ -166,41 +223,44 @@
                     <div class="columna">
                         <h3>Código de Vestimenta</h3>
                         <p>
-                            <b class="boton">Se reserva el color blanco para la novia. </b>
+                            <b class="boton letra">Se reserva el color blanco para la novia. </b>
                         </p>
                     </div>
                     <div class="columna">
                         <h3>Notas Importantes</h3>
-                        <p>Es importante que confirmes tu asistencia con al menos 15 días de anticipación.</p>
+                        <p class="letra">Es importante que confirmes tu asistencia antes del 15 de febrero.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Sección 7: Regalos (Lluvia de Sobres) -->
+        <!-- Sección 8: Regalos (Lluvia de Sobres) -->
         <section id="regalos" class="seccion">
             <div class="seccion-contenido">
                 <h2>Regalos</h2>
-                <!-- Icono de Sobre SVG -->
-                <svg class="icono-sobre" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M22 4H2v16h20V4zm-2 14H4V8l8 5 8-5v10zM12 11L4 6h16l-8 5z" />
-                </svg>
-                <p>El mejor regalo es su presencia, pero si desean obsequiarnos algo, pueden hacerlo en nuestro buzón
-                    para la <b class="boton">"lluvia de sobres".</b> </p>
+                <i class="fi fi-tr-gifts"></i>
+                <p class="letra">El mejor regalo es su presencia, pero si desean obsequiarnos algo, pueden hacerlo en
+                    nuestro buzón para la <b class="boton">"lluvia de sobres".</b>
+                </p>
             </div>
         </section>
     </main>
 
-    <!-- Sección 8: Despedida -->
+    <!-- Sección 9: Despedida -->
     <footer id="despedida">
         <h2>¡Gracias por acompañarnos!</h2>
-        <p>Con amor,</p>
+        <p class="letra">Con amor,</p>
         <p class="nombres-novios">Daniel y Stephania</p>
     </footer>
 
     <!-- Botón Flotante de Música -->
     <button id="btn-control-musica" class="boton-flotante-musica oculto">
-        <span class="icono-musica">🎵</span>
+        <svg class="icono-musica" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 18V5L21 3V16" stroke="#A67841" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            <circle cx="6" cy="18" r="3" stroke="#A67841" stroke-width="2" fill="none" />
+            <circle cx="18" cy="16" r="3" stroke="#A67841" stroke-width="2" fill="none" />
+        </svg>
     </button>
 
     <script src="script.js"></script>
