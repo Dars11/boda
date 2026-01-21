@@ -719,6 +719,11 @@ h2 {
 }
 
 /* --- Sección 5: Nuevo Carrusel de Fotos --- */
+#galeria {
+    padding-bottom: 120px;
+    /* Space for the golden line divider */
+}
+
 .carrusel-contenedor {
     position: relative;
     width: 100%;
@@ -1314,5 +1319,119 @@ h2 {
 @media (max-width: 767px) {
     .shape-divider-arc svg {
         height: 60px;
+    }
+}
+
+/* --- Golden Line Divider --- */
+.shape-divider-golden-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    height: 120px;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.shape-divider-golden-line svg {
+    position: relative;
+    display: block;
+    width: 130%;
+    /* Wider for gentler curve */
+    height: 100%;
+    left: -15%;
+}
+
+.shape-divider-golden-line .shape-line {
+    fill: none;
+    stroke: #A67841;
+    stroke-width: 1.5px;
+}
+
+@media (max-width: 767px) {
+    .shape-divider-golden-line {
+        height: 60px;
+    }
+}
+
+/* --- Decoración Floral Geométrica --- */
+.decoracion-flotante {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 250px;
+    height: 500px;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.9;
+    animation: flotar 6s ease-in-out infinite;
+}
+
+.decoracion-flotante.derecha {
+    right: -100px;
+    /* Slight overlap off-screen or to the very edge */
+}
+
+/* Ensure parent has relative positioning */
+#regalos .seccion-contenido {
+    position: relative;
+    /* overflow: visible;  Might need this if hidden by default, but be careful with scrollbars */
+}
+
+/* If overflow issue arises, apply overflow-x: hidden to body/main */
+
+.decoracion-flotante svg {
+    width: 100%;
+    height: 100%;
+}
+
+.geom-line {
+    stroke: #A67841;
+    /* Gold */
+    stroke-width: 1.5px;
+    opacity: 0.6;
+}
+
+.hoja {
+    fill: #8F9E8B;
+    /* Sage Green */
+    opacity: 0.4;
+    transition: all 0.5s ease;
+}
+
+.hoja:hover {
+    fill: #A67841;
+    /* Gold on hover if interactive, but pointer-events: none prevents it usually. Just style choice */
+    opacity: 0.6;
+}
+
+/* Mobile: Adjust or Hide */
+@media (max-width: 1000px) {
+    .decoracion-flotante.derecha {
+        right: -60px;
+        /* Bring it closer */
+        opacity: 0.5;
+        /* More visible */
+    }
+}
+
+@media (max-width: 767px) {
+    .decoracion-flotante {
+        width: 180px;
+        /* Slightly larger again */
+        height: 360px;
+        right: -20px;
+        /* Almost fully inside, just clipping edge */
+        /* almost visible at the top */
+        top: 5%;
+        opacity: 0.25;
+        /* Faint background behind text */
+    }
+
+    .decoracion-flotante.derecha {
+        right: -40px;
+        /* Override specific interaction if needed */
     }
 }
