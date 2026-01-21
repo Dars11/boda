@@ -12,6 +12,8 @@ body {
     background-color: #f9f6f2;
     /* Tono Nácar/Perla */
     transition: background-color 0.5s ease;
+    overflow-x: hidden;
+    /* Prevent horizontal scroll on mobile */
 }
 
 /* --- Bloqueo de scroll Profesional --- */
