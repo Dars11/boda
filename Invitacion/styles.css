@@ -6,7 +6,7 @@ html {
 body {
     font-family: 'Lato', sans-serif;
     margin: 0;
-    color: #5d5d5d;
+    color: rgb(93, 93, 93);
     /* Un gris más suave */
     line-height: 1.8;
     background-color: #f9f6f2;
@@ -20,6 +20,54 @@ body.esta-bloqueado {
     height: 100vh;
     touch-action: none;
     /* Bloquea scroll en móviles */
+}
+
+.shape-divider-waves {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.shape-divider-waves svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 80px;
+}
+
+/* Capa 1 (Fondo) - Dorado suave */
+.shape-divider-waves .shape-fill:nth-child(1) {
+    fill: #A67841;
+    opacity: 0.15;
+}
+
+/* Capa 2 (Medio) - Dorado medio */
+.shape-divider-waves .shape-fill:nth-child(2) {
+    fill: #A67841;
+    opacity: 0.3;
+}
+
+/* Capa 3 (Frente) - Blanco sólido (conecta con la siguiente sección) */
+.shape-divider-waves .shape-fill:nth-child(3) {
+    fill: #ffffff;
+    opacity: 1;
+}
+
+/** Media Queries para Ajuste de Altura **/
+@media (min-width: 768px) and (max-width: 1023px) {
+    .shape-divider-waves svg {
+        height: 60px;
+    }
+}
+
+@media (max-width: 767px) {
+    .shape-divider-waves svg {
+        height: 40px;
+    }
 }
 
 h1,
@@ -61,10 +109,10 @@ h2 {
 /* --- Estilos para Separación de Secciones --- */
 .seccion-fondo-blanco {
     background-color: #ffffff;
-    border-top: 1px solid #f0eeeb;
-    /* Borde superior muy sutil */
-    border-bottom: 1px solid #f0eeeb;
-    /* Borde inferior muy sutil */
+    /* border-top: 1px solid #f0eeeb; */
+    /* Eliminado para dar continuidad al shape divider */
+    /* border-bottom: 1px solid #f0eeeb; */
+    /* Eliminado para dar continuidad al shape divider */
 }
 
 /* Sección 1: Portada y Efecto Parallax */
@@ -91,6 +139,18 @@ h2 {
     bottom: 0;
     background-color: rgba(40, 50, 70, 0.4);
     /* Tono de transparencia */
+}
+
+/* Transición suave hacia la siguiente sección */
+.parallax::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(to bottom, transparent, #f9f6f2);
+    pointer-events: none;
 }
 
 .contenido-portada {
@@ -570,6 +630,13 @@ h2 {
     font-family: "Buda", serif;
     font-weight: 300;
     font-style: normal;
+}
+
+.letra b,
+.letra strong {
+    font-weight: 700;
+    /* Esto crea una sombra del mismo color alrededor para simular grosor */
+    text-shadow: 0.2px 0 0 currentColor, -0.2px 0 0 currentColor;
 }
 
 /* --- Sección 6: Pases de Invitados --- */
@@ -1171,4 +1238,108 @@ h2 {
 
 .boton-flotante-musica.reproduciendo .icono-musica {
     animation: rotar-suave 4s linear infinite;
+}
+
+/* Ajustes desde aqui*/
+
+.custom-shape-divider-top-1768862544 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-top-1768862544 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 92px;
+}
+
+.custom-shape-divider-top-1768862544 .shape-fill {
+    fill: #DEE5E2;
+}
+
+/** For tablet devices **/
+@media (min-width: 768px) and (max-width: 1023px) {
+    .custom-shape-divider-top-1768862544 svg {
+        width: calc(100% + 1.3px);
+        height: 63px;
+    }
+}
+
+/** For mobile devices **/
+@media (max-width: 767px) {
+    .custom-shape-divider-top-1768862544 svg {
+        width: calc(100% + 1.3px);
+        height: 50px;
+    }
+}
+
+/* --- Shape Divider Slope (Sec 5 -> Sec 6) --- */
+.shape-divider-slope {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.shape-divider-slope svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 100px;
+    transform: rotate(180deg);
+}
+
+.shape-divider-slope .shape-fill {
+    fill: #f9f6f2;
+}
+
+/** Media Queries Divider Slope **/
+@media (max-width: 767px) {
+    .shape-divider-slope svg {
+        height: 50px;
+    }
+}
+
+/* --- Shape Divider Arc (Sec 6 -> Sec 7) --- */
+.shape-divider-arc {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.shape-divider-arc svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 90px;
+}
+
+/* Capa 1: Acento Dorado */
+.shape-divider-arc .shape-fill:nth-child(1) {
+    fill: #A67841;
+    opacity: 0.25;
+}
+
+/* Capa 2: Principal Blanca (Conecta) */
+.shape-divider-arc .shape-fill:nth-child(2) {
+    fill: #ffffff;
+    opacity: 1;
+}
+
+/** Media Queries Divider Arrow/Arc **/
+@media (max-width: 767px) {
+    .shape-divider-arc svg {
+        height: 60px;
+    }
 }
