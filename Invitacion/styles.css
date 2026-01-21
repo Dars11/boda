@@ -1278,34 +1278,7 @@ h2 {
     }
 }
 
-/* --- Shape Divider Slope (Sec 5 -> Sec 6) --- */
-.shape-divider-slope {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-}
 
-.shape-divider-slope svg {
-    position: relative;
-    display: block;
-    width: calc(100% + 1.3px);
-    height: 100px;
-    transform: rotate(180deg);
-}
-
-.shape-divider-slope .shape-fill {
-    fill: #f9f6f2;
-}
-
-/** Media Queries Divider Slope **/
-@media (max-width: 767px) {
-    .shape-divider-slope svg {
-        height: 50px;
-    }
-}
 
 /* --- Shape Divider Arc (Sec 6 -> Sec 7) --- */
 .shape-divider-arc {
